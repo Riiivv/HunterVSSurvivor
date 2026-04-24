@@ -2,15 +2,18 @@ using UnityEngine;
 
 public class BatteryPickup : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public int value = 1;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            PlayerCollector collector = other.GetComponent<PlayerCollector>();
+            if (collector != null)
+            {
+                collector.AddBattery(value);
+                Destroy(gameObject);
+            }
+        }
     }
 }

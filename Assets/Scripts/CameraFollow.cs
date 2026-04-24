@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public Transform target;
+    public Vector3 offset = new Vector3(0f, 12f, -8f);
 
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
+        if (target == null) return;
+
+        transform.position = target.position + offset;
+        transform.rotation = Quaternion.Euler(45f, 0f, 0f);
     }
 }

@@ -2,15 +2,11 @@ using UnityEngine;
 
 public class PlayerCollector : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public int batteryCount = 0;
 
-    // Update is called once per frame
-    void Update()
+    public void AddBattery(int amount)
     {
-        
+        batteryCount += amount;
+        GameManager.instance.AddBattery(amount);
     }
 }

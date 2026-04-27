@@ -49,6 +49,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            GameManager.instance.LoseGame();
+        }
+    }
     public void LoseGame()
     {
         if (gameEnded) return;
